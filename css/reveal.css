@@ -32,6 +32,7 @@ html, body, .reveal div, .reveal span, .reveal applet, .reveal object, .reveal i
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	line-height: 1em;
 }
 
 .reveal article, .reveal aside, .reveal details, .reveal figcaption, .reveal figure,
@@ -183,6 +184,7 @@ body {
 .reveal iframe {
 	max-width: 95%;
 	max-height: 95%;
+	vertical-align: middle;
 }
 
 /** Prevents layering issues in certain browser/transition combinations */
@@ -206,6 +208,7 @@ body {
 
 	text-align: left;
 	margin: 0 0 0 1em;
+	font-size: 1.5em;
 }
 
 .reveal ol {
@@ -233,6 +236,7 @@ body {
 }
 
 .reveal p {
+	font-size: 2em;
 	margin-bottom: 10px;
 	line-height: 1.2em;
 }

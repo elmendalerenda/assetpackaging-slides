@@ -14,7 +14,7 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/night.css" id="theme">
 
 		<!-- For syntax highlighting -->
@@ -46,83 +46,251 @@
 				</section>
 
 				<section>
-					<h2>Assets</h2>
+					<h1>Assets</h1>
 
 					<p>
 						JavaScript, CSS, images, fonts, audio, video
 					</p>
 				</section>
 
-
 				<section>
-					<h2>Ventajas</h2>
+					<h1>Pipeline</h1>
 
-					<p>
-						Optimizacion, gestión cache
-					</p>
+					<ol>
+						<li>Compile</li>
+						<li>Merge</li>
+						<li>Minify</li>
+						<li>Fingerprint</li>
+						<li>Compress</li>
+						<li>Cache Warm Up </li>
+					</ol>
 				</section>
 
 
 				<section>
-					<h2>Pipeline</h2>
+				<section>
+					<h2>Performance optimization</h2>
+				</section>
 
-					<p>
-						Precompile, Concatenate, Minify, Compress, Fingerprint, Warm Up Cache
-					</p>
+				<section>
+					<img width="100%" src="./img/yahoo.png"></img>
+				</section>
 				</section>
 
 
 				<section>
-					<h2>Precompile</h2>
-
+					<h2>Compile</h2>
 					<p>
-						LESS, SASS, CoffeeScript, JS templates
+						Less, Sass, CoffeeScript, Haml, JS templates
 					</p>
+
+
+					<pre><code >square = (x) -> x * x
+cube   = (x) -> square(x) * x</code></pre>
+					<pre><code >var cube, square;
+square = function(x) {
+  return x * x;
+};
+
+cube = function(x) {
+  return square(x) * x;
+};</code></pre>
 				</section>
 
 				<section>
-					<h2>Concatenate</h2>
+					<section>
 
-					<p>
-						JS, CSS
-					</p>
+					<h1>Merge</h1>
+					</section>
+
+					<section>
+						<h2>Merge text files</h2>
+
+						<pre><code style="height:200px">js/ZZ/ZZ.js
+js/ZZ/CUORECorrections.js
+js/ZZ/Handlers/Factory.js
+js/ZZ/Helpers/Session.js
+js/ZZ/Helpers/Locale.js
+js/ZZ/Pages/ZZBase.js
+js/ZZ/Pages/Group.js
+js/ZZ/Pages/GroupProfile.js
+js/ZZ/Pages/Registration.js
+js/ZZ/Pages/Guide.js
+js/ZZ/Pages/GuideProfile.js
+js/ZZ/Pages/Admin.js
+js/ZZ/Services/Authenticated.js
+js/ZZ/Services/Groups.js
+js/ZZ/Services/Guides.js
+js/ZZ/Services/Users.js
+js/ZZ/Services/Url.js
+js/ZZ/Services/Catalogs.js
+js/ZZ/Components/Card.js
+js/ZZ/Components/RegisterCard.js
+js/ZZ/Components/GuideCard.js
+js/ZZ/Components/ZButton.js
+js/ZZ/Components/Input.js
+js/ZZ/Components/TextPanel.js
+js/ZZ/Components/NumericSelector.js
+js/ZZ/Components/Modal.js
+js/ZZ/Components/Date.js
+js/ZZ/Components/Number.js</code></pre>
+
+						<pre><code >#!/bin/bash
+JS_DIR=./web/public/
+APP_JS=app.js
+SOURCES=`cat sources.list`
+
+for file in ${SOURCES} ; do
+    cat $JS_DIR$file >> $APP_JS ;
+done</code></pre>
+
+						<pre><code>app.js</code></pre>
+
+
+
+					</section>
+
+				<section>
+					<h2>Merge images</h2>
+
+					<img width="40%" src="./img/flags.jpg"></img>
+
+					<pre><code >.mysprite {
+    background: url(mysprite.png) no-repeat;
+}
+
+.icon1 {
+    background-position: 16px 16px;
+}
+
+.icon2 {
+    background-position: 32px 16px;
+}</code></pre>
+
+				</section>
+
+
+
+			</section>
+
+			<section>
+
+				<section>
+					<h1>Minify</h1>
 				</section>
 
 				<section>
-					<h2>Minify</h2>
+					<h2>Minify text files</h2>
 
-					<p>
-						JS, CSS, Images
-					</p>
+					<pre><code >body {
+  font-size: 12px;
+  background-color: #eee;
+  font-family: 'Open Sans',sans-serif;
+}
+
+.home-background {
+  background-color: white;
+}
+
+.play {
+  background: url('../img/play.png') center no-repeat;
+  height: 90px;
+  width: 90px;
+  border: 0px;
+  display: block;
+  margin: 140px auto auto auto;
+}
+
+.tooltip {
+  line-height: 14px;
+}
+
+.title {
+  color: white;
+  font-family: 'Buenard',serif;
+  font-size: 54pt;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 50pt;
+  margin: auto auto auto 20px;
+  text-align: center;
+  text-shadow: 1px 1px 4px black;
+}
+
+.icon-lang {
+  padding-right: 10px;
+  height: 20px;
+  margin-left: 0px;
+}
+</code></pre>
+
+					<pre height="100px"><code  >body{font-size:12px;background-color:#eee;font-family:'Open Sans',sans-serif}.home-background{background-color:white}.play{background:url('../img/play.png') center no-repeat;height:90px;width:90px;border:0;display:block;margin:140px auto auto auto}.tooltip{line-height:14px}.title{color:white;font-family:'Buenard',serif;font-size:54pt;font-weight:800;letter-spacing:-0.03em;line-height:50pt;margin:auto auto auto 20px;text-align:center;text-shadow:1px 1px 4px black}.icon-lang{padding-right:10px;height:20px;margin-left:0}.label-lang{border-radius:10px 10px;border:1px solid #aaa;text-align:center;width:20%}#locale-selector>a>span{display:none}.icon-english,#language-filter a:hover .icon-english,#locale-selector a:hover .icon-english{background:url('../img/flags/english.png') center no-repeat}.icon-chinese,#language-filter a:hover .icon-chinese{background:url('../img/flags/chinese.png') center no-repeat}.icon-french,#language-filter a:hover .icon-french{background:url('../img/flags/french.png') center no-repeat}.icon-german,#language-filter a:hover .icon-german{background:url('../img/flags/german.png') center no-repeat}.icon-italian,#language-filter a:hover .icon-italian{background:url('../img/flags/italian.png') center no-repeat}.icon-japanese,#language-filter a:hover .icon-japanese{background:url('../img/flags/japanish.png') center no-repeat}.icon-spanish,#language-filter a:hover .icon-spanish,#locale-selector a:hover .icon-spanish{background:url('../img/flags/spanish.png') center no-repeat;float:none}.caret{margin-top:8px;margin-left:6px}.nolabel label{display:none}.card-background{background-color:#eee}.card-bottom-gap{height:50px}#register{background-color:#44ac2f;margin-top:5px}#register a{color:white;text-shadow:none;padding:3px 10px}.zz-btn{font-family:'Open Sans Condensed',sans-serif;background-color:#44ac2f;border:0;padding:3px;padding:3px 13px;color:white;margin-bottom:9px}.zz-btn:not(.disabled):hover{background-color:#39ce1a}.zz-btn.signUp:not(.disabled):hover{background-color:#eb0312}.zz-btn.disabled,.zz-btn[disabled]{-ms-filter:"alpha(opacity=30)";filter:alpha(opacity=30);opacity:.3;cursor:not-allowed}.qq-uploader .zz-btn{text-align:center}.navbar-fixed-top </code></pre>
+
+
+
 				</section>
-
 
 				<section>
-					<h2>Minify JS</h2>
+					<h2>Minify & Optimize JS</h2>
 
-					<p>
-						source maps
-					</p>
+					<ul>
+						<li>remove comments, unnecessary spaces, line breaks</li>
+						<li>rename local variable names</li>
+						<li>aggresive renaming, dead code removal, inlining</li>
+					</ul>
+
 				</section>
+
+				<section>
+					<h2>Minify & Optimize JS</h2>
+
+					<ul>
+						<li>Google Closure Compiler</li>
+						<li>YUI Compressor</li>
+						<li>JSMin</li>
+					</ul>
+
+				</section>
+
+				<section>
+					<h2> Source Maps Here</h2>
+
+
+				</section>
+
 
 
 				<section>
 					<h2>Minify images</h2>
 
-					<p>
-						sprites, embeber el css
-					</p>
+<pre><code>.footer {
+  padding-left: 43px;
+  border: 0px;
+  background-repeat: no-repeat;
+  background-image:url(data:image/gif;base64,R0lGODlhUAAPANUAAAAAAAoKChQUF
+BoaGiQkJCwsLD4+PkJCQk1NTVNTU15eXmJiYmxsbHJycnt7e4ODg4iIiJZsbJqamqKioqqqqqxERLS0t
+L+/v8PDw8zMzNTU1Nvb2+Tk5O3t7fPz8/7+/v8AAP8ICP8WFv8cHP8jI/8yMv86Ov9CQv9KSv9VVf9lZ
+f9ycv97e/+Dg/+Jif+Wlv+bm/+rq/+ysv+5uf/IyP/Q0P/f3//j4//19QAAAAAAAAAAAAAAAAAAAAAAA
+AAAACH5BAkAADkALAAAAABQAA8AAAb/wENjSCwaj8ikcskcVpSHx2dKrVqv2Kx2y52eZtmHtEsum8klE
+g4rnnI8007nI6/PPXDOnD7XxzlngVQkICxUNjA1H20cAApTBQMZAJSVGAMFHgAIUwYBHwMBcKFwgmciI
+CAvKoQpU4yUCx2RkwQItwgamJqOHZ4fDQAWkwmmZjgzqcogJWuLUo2UAgGSAA4dF9keu5UB0x8YAAwPA
+BTGXDQtJyHLqSI3VLAJDpTVDhaW3AgPAQCfoJREndsSA0U7ZTGqwFrwYYMAexscHABwKROAYhsIfOoAY
+AABABsGcrnBYkQ7V/GgAWD4gZa1VxS5FfvwSwIACBMAjBG5hcZBcBkpPzRi6bISpYqaZv4yAEAPAAI8u
+SQDYaKFyRHO2viCMGVBgg0GworVkGCBBwMOpjBA4OEASwYGAEXNEgPECHgfZKBY8Wrn3L9cYICgYQXvA
+66AE2txAUMLhAMQIkuWLKay5cuYM2vezNlyBM4HggAAOw==);
+  }</code></pre>
+
+
+
 				</section>
 
-				<section>
-					<h2>Fingerprint</h2>
-
-				</section>
+			</section>
 
 
+			<section>
+				<h2>Fingerprint</h2>
 
-
-
+			</section>
 
 
 				<section>
